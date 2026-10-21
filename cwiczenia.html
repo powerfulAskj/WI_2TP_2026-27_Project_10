@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lekcja 1: Podstawy JavaScript - Ćwiczenia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Lekcja 1: Podstawy JavaScript — Ćwiczenia Praktyczne</h1>
+      <p>
+        Pobieranie danych z formularzy (<code>getElementById</code>), konwersja
+        (<code>Number</code>) i operacje matematyczne.
+      </p>
+    </header>
+
+    <main>
+      <!-- Zadanie 1 -->
+      <section class="card">
+        <h2>Zadanie 1: Suma i iloczyn dwóch liczb</h2>
+        <p class="description">
+          Pobierz dwie liczby, oblicz ich sumę oraz iloczyn i wyświetl wynik.
+        </p>
+        <div class="form-group">
+          <input type="number" id="liczba1" placeholder="Pierwsza liczba" />
+          <input type="number" id="liczba2" placeholder="Druga liczba" />
+        </div>
+        <button onclick="zadanie1()">Oblicz sumę i iloczyn</button>
+        <div id="wynik1" class="wynik">Wynik pojawi się tutaj...</div>
+      </section>
+
+      <!-- Zadanie 2 -->
+      <section class="card">
+        <h2>Zadanie 2: Pole i obwód prostokąta</h2>
+        <p class="description">
+          Pobierz długość (a) oraz szerokość (b) prostokąta, a następnie oblicz
+          jego pole i obwód.
+        </p>
+        <div class="form-group">
+          <input type="number" id="dlugosc" placeholder="Długość (a)" />
+          <input type="number" id="szerokosc" placeholder="Szerokość (b)" />
+        </div>
+        <button onclick="zadanie2()">Oblicz pole i obwód</button>
+        <div id="wynik2" class="wynik">Wynik pojawi się tutaj...</div>
+      </section>
+
+      <!-- Zadanie 3 -->
+      <section class="card">
+        <h2>Zadanie 3: Konwersja temperatury (°C &rarr; °F)</h2>
+        <p class="description">
+          Przelicz temperaturę z stopni Celsjusza na Fahrenheita (wzór:
+          <code>F = C * 1.8 + 32</code>).
+        </p>
+        <div class="form-group">
+          <input type="number" id="celsjusz" placeholder="Temperatura w °C" />
+        </div>
+        <button onclick="zadanie3()">Przelicz na °F</button>
+        <div id="wynik3" class="wynik">Wynik pojawi się tutaj...</div>
+      </section>
+
+      <!-- Zadanie 4 -->
+      <section class="card">
+        <h2>Zadanie 4: Średnia arytmetyczna trzech ocen</h2>
+        <p class="description">
+          Pobierz trzy oceny cząstkowe i wylicz ich średnią arytmetyczną.
+        </p>
+        <div class="form-group">
+          <input type="number" id="ocena1" placeholder="Ocena 1" />
+          <input type="number" id="ocena2" placeholder="Ocena 2" />
+          <input type="number" id="ocena3" placeholder="Ocena 3" />
+        </div>
+        <button onclick="zadanie4()">Oblicz średnią</button>
+        <div id="wynik4" class="wynik">Wynik pojawi się tutaj...</div>
+      </section>
+
+      <!-- Zadanie 5 -->
+      <section class="card highlight">
+        <h2>Zadanie 5 : Kalkulator wskaźnika BMI</h2>
+        <p class="description">
+          Oblicz wskaźnik BMI (wzór:
+          <code>BMI = masa / (wzrost * wzrost)</code>). Wzrost podaj w metrach
+          (np. 1.75).
+        </p>
+        <div class="form-group">
+          <input type="number" id="waga" placeholder="Masa ciała (kg)" />
+          <input
+            type="number"
+            step="0.01"
+            id="wzrost"
+            placeholder="Wzrost (m), np. 1.75"
+          />
+        </div>
+        <button onclick="zadanie5()">Oblicz BMI</button>
+        <div id="wynik5" class="wynik">Wynik pojawi się tutaj...</div>
+      </section>
+    </main>
+
+    <!-- MIEJSCE NA KOD JAVASCRIPT UCZNIA -->
+    <script>
+      // Zadanie 1: Suma i iloczyn
+      function zadanie1() {
+        // 1. Pobierz wartości z pól 'liczba1' i 'liczba2'
+        // 2. Przekształć wartości na typ liczbowy za pomocą Number()
+        // 3. Oblicz sumę oraz iloczyn
+        // 4. Wyświetl wynik w elemencie o id 'wynik1'
+
+        let number1 = Number(document.getElementById("liczba1").value);
+        let number2 = Number(document.getElementById("liczba2").value);
+        let sum = number1 + number2;
+        let multiple = number1 * number2;
+        document.querySelector("#wynik1").textContent =
+          `Suma = ${sum}, Iloczyn = ${multiple}`;
+      }
+
+      // Zadanie 2: Pole i obwód prostokąta
+      function zadanie2() {
+        // Wpisz swój kod tutaj...
+        let length = Number(document.getElementById("dlugosc").value);
+        let width = Number(document.getElementById("szerokosc").value);
+        let pole = length * width;
+        let obwod = 2 * (length + width);
+        document.getElementById("wynik2").textContent =
+          `pole = ${pole}, obwód = ${obwod}`;
+      }
+
+      // Zadanie 3: Konwersja °C na °F
+      function zadanie3() {
+        let temperatura = Number(document.getElementById("celsjusz").value);
+        let temperaturaWFarenheita = temperatura * 1.8 + 32;
+        document.getElementById("wynik3").textContent =
+          `°F = ${temperaturaWFarenheita.toFixed(1)}`;
+      }
+
+      // Zadanie 4: Średnia trzech ocen
+      function zadanie4() {
+        // Wpisz swój kod tutaj...
+        let ocena1 = Number(document.getElementById("ocena1").value);
+        let ocena2 = Number(document.getElementById("ocena2").value);
+        let ocena3 = Number(document.getElementById("ocena3").value);
+        let average = (ocena1 + ocena2 + ocena3) / 3;
+        document.getElementById("wynik4").textContent = `Średnia arytmetyczna = ${average.toFixed(1)}`
+      }
+
+      // Zadanie 5: Kalkulator BMI
+      function zadanie5() {
+        // Wpisz swój kod tutaj... Użyj .toFixed(2)
+        let weight = Number(document.getElementById('waga').value);
+        let height = Number(document.getElementById('wzrost').value)
+        let BMI = weight / (height * height)
+        document.getElementById("wynik5").textContent = `BMI = ${BMI.toFixed(2)}`
+      }
+    </script>
+  </body>
+</html>
